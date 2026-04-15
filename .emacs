@@ -7,9 +7,10 @@
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
-;(setq display-line-numbers-type = 'relative)
-(global-display-line-numbers-mode 1)
+(setq display-line-numbers-type 'relative)
+(global-display-line-numbers-mode t)
 (setq inhibit-splash-screen t)
+(setq make-backup-files nil)
 
 ;; ido
 (require 'smex)
@@ -38,8 +39,8 @@
 
 ;; complete code
 (require 'company)
-(global-company-mode 1)
+(global-company-mode t)
 (setq company-minimum-prefix-length 1)
 (setq company-idle-delay 0.0)
-(setq company-backends '((company-clang company-file)))
+;;(setq company-backends '((company-clang company-file)))
 (setq company-clang-insert-arguments nil)
