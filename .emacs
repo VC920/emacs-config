@@ -19,8 +19,10 @@
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
 ;; set the style or theme
-(require 'gruber-darker-theme)
-(load-theme 'gruber-darker t)
+;;(require 'gruber-darker-theme)
+;;(load-theme 'gruber-darker t)
+(require 'doom-themes)
+(load-theme 'doom-one t)
 (setq c-default-style "linux" c-basic-offset 4)
 (set-frame-font "Monospace-12")
 
@@ -30,3 +32,8 @@
 (setq company-minimum-prefix-length 1)
 (setq company-idle-delay 0.0)
 (setq company-clang-insert-arguments nil)
+
+;; check error
+(require 'flycheck)
+(global-flycheck-mode 1)
+(add-hook 'emacs-lisp-mode-hook (lambda () (flycheck-mode -1)))
