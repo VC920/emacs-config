@@ -13,7 +13,6 @@
 (scroll-bar-mode -1)
 (setq display-line-numbers-type 'relative)
 (global-display-line-numbers-mode 1)
-;; (setq inhibit-splash-screen t)
 (setq make-backup-files nil)
 
 ;; ido
@@ -28,6 +27,7 @@
 (require 'doom-themes)
 (load-theme 'doom-one t)
 (setq c-default-style "linux" c-basic-offset 4)
+(setq indent-tabs-mode nil)
 (set-frame-font "Monospace-12")
 
 ;; complete code
