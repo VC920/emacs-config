@@ -22,12 +22,9 @@
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
 ;; set the style or theme
-; (require 'gruber-darker-theme)
-; (load-theme 'gruber-darker t)
-(require 'doom-themes)
-(load-theme 'doom-one t)
+(require 'vscode-dark-plus-theme)
+(load-theme 'vscode-dark-plus t)
 (setq c-default-style "linux" c-basic-offset 4)
-; (setq c-default-style "linux")
 (setq indent-tabs-mode nil)
 (set-frame-font "Monospace-12")
 
