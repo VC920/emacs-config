@@ -37,6 +37,8 @@
 (setq company-minimum-prefix-length 1)
 (setq company-idle-delay 0.0)
 (setq company-backends '(company-capf))
+
+(setq eldoc-idle-delay 0.0)
 (setq eglot-ignored-server-capabilities
       '(:documentOnTypeFormattingProvider
 	:documentRangeFormattingProvider
