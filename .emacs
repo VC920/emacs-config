@@ -1,6 +1,6 @@
 ;; quike init
 (setq gc-cons-threshold most-positive-fixnum)
-(add-hook 'after-init-hook #'(lambda () (setq gc-ccons-threshold 800000)))
+(add-hook 'after-init-hook #'(lambda () (setq gc-cons-threshold 800000)))
 
 ;; melpa package
 (require 'package)
@@ -14,6 +14,7 @@
 (setq display-line-numbers-type 'relative)
 (global-display-line-numbers-mode 1)
 (setq make-backup-files nil)
+(setq mode-line-modes nil)
 
 ;; ido
 (require 'smex)
@@ -30,18 +31,21 @@
 
 ;; complete code
 (require 'company)
-(global-company-mode 1)
 (setq company-minimum-prefix-length 1)
 (setq company-idle-delay 0.0)
-(setq company-backends '(company-capf))
+(global-company-mode 1)
 
+(require 'lsp-mode)
+(setq lsp-idle-delay 0.0)
 (setq eldoc-idle-delay 0.0)
-(setq eglot-ignored-server-capabilities
-      '(:documentOnTypeFormattingProvider
-	:documentRangeFormattingProvider
-	:documentFormattingProvider))
-(setq eglot-server-programs
-      '((c++-mode . ("clangd" "--header-insertion=never"))
-        (c-mode   . ("clangd" "--header-insertion=never"))))
-(add-hook 'eglot-managed-mode-hook (lambda () (eglot-inlay-hints-mode -1)))
-(add-hook 'prog-mode-hook 'eglot-ensure)
+(setq lsp-enable-on-type-formatting nil)
+(setq lsp-clients-clangd-args '("--header-insertion=never"));
+(setq lsp-headerline-breadcrumb-enable nil)
+(add-hook 'c-mode-hook 'lsp)
+(add-hook 'c++-mode-hook 'lsp)
+
+;; check error
+(require 'flycheck)
+(setq flycheck-display-errors-delay 0.0)
+(setq lsp-diagnostics-provider :flycheck)
+(setq lsp-ui-sideline-enable nil)
