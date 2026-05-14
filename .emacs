@@ -11,8 +11,10 @@
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
-(setq display-line-numbers-type 'relative)
 (global-display-line-numbers-mode 1)
+(setq display-line-numbers-type 'relative)
+(setq inhibit-splash-screen 1)
+(setq ring-bell-function 'ignore)
 (setq make-backup-files nil)
 (setq mode-line-modes nil)
 
@@ -23,17 +25,17 @@
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
 ;; set the style or theme
-(require 'vscode-dark-plus-theme)
-(load-theme 'vscode-dark-plus t)
+(require 'doom-themes)
+(load-theme 'doom-gruvbox 1)
+(set-frame-font "Monospace-12")
 (setq c-default-style "linux" c-basic-offset 4)
 (setq indent-tabs-mode nil)
-(set-frame-font "Monospace-12")
 
 ;; complete code
 (require 'company)
+(global-company-mode 1)
 (setq company-minimum-prefix-length 1)
 (setq company-idle-delay 0.0)
-(global-company-mode 1)
 
 (require 'lsp-mode)
 (setq lsp-idle-delay 0.0)
