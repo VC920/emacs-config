@@ -1,0 +1,25 @@
+;; disable or enable any modes
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+(global-display-line-numbers-mode 1)
+(setq display-line-numbers-type 'relative)
+(setq inhibit-splash-screen t)
+(setq ring-bell-function 'ignore)
+(setq make-backup-files nil)
+
+;; ido
+(ido-mode 1)
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+
+;; set the style or theme
+(load-theme 'wombat 1)
+(set-frame-font "Monospace-12")
+(setq c-basic-offset 4)
+(setq indent-tabs-mode nil)
+
+;; complete code
+(global-company-mode 1)
+(setq company-minimum-prefix-length 1)
+(setq company-idle-delay 0.0)
