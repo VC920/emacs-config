@@ -23,3 +23,7 @@
 (add-to-list 'auto-mode-alist '("\\.vert\\'" . c-mode))
 (add-to-list 'auto-mode-alist '("\\.frag\\'" . c-mode))
 (add-to-list 'auto-mode-alist '("\\.glsl\\'" . c-mode))
+
+;; mirror
+;; (setq package-archives '(("gnu" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+;;			 ("melpa" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
