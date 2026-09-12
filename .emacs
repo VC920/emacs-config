@@ -8,6 +8,7 @@
 (setq-default cmake-tab-width 4)
 (setq-default c-basic-offset 4)
 
+;; theme
 (load-theme 'tango-dark 1)
 
 ;; ido
