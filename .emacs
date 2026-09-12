@@ -1,53 +1,25 @@
-;; quike init
-(setq gc-cons-threshold most-positive-fixnum)
-(add-hook 'after-init-hook #'(lambda () (setq gc-cons-threshold 800000)))
-
-;; melpa package
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(package-initialize)
-
-;; disable or enable any modes
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (global-display-line-numbers-mode 1)
-(setq display-line-numbers-type 'relative)
-(setq inhibit-splash-screen 1)
-(setq ring-bell-function 'ignore)
-(setq make-backup-files nil)
-(setq mode-line-modes nil)
+(setq-default make-backup-files nil)
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+(setq-default cmake-tab-width 4)
+(setq-default c-basic-offset 4)
+
+(load-theme 'tango-dark 1)
 
 ;; ido
-(require 'smex)
 (ido-mode 1)
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+;; (global-set-key (kbd "M-x") 'smex)
+;; (global-set-key (kbd "C-c C-c M-x") 'execute-extaended-command)
 
-;; set the style or theme
-(require 'doom-themes)
-(load-theme 'doom-gruvbox 1)
-(set-frame-font "Monospace-12")
-(setq c-default-style "linux" c-basic-offset 4)
-(setq indent-tabs-mode nil)
+;; mulitiple cursors
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 
-;; complete code
-(require 'company)
-(global-company-mode 1)
-(setq company-minimum-prefix-length 1)
-(setq company-idle-delay 0.0)
-
-(require 'lsp-mode)
-(setq lsp-idle-delay 0.0)
-(setq eldoc-idle-delay 0.0)
-(setq lsp-enable-on-type-formatting nil)
-(setq lsp-clients-clangd-args '("--header-insertion=never"));
-(setq lsp-headerline-breadcrumb-enable nil)
-(add-hook 'c-mode-hook 'lsp)
-(add-hook 'c++-mode-hook 'lsp)
-
-;; check error
-(require 'flycheck)
-(setq flycheck-display-errors-delay 0.0)
-(setq lsp-diagnostics-provider :flycheck)
-(setq lsp-ui-sideline-enable nil)
+;; glsl
+(add-to-list 'auto-mode-alist '("\\.vert\\'" . c-mode))
+(add-to-list 'auto-mode-alist '("\\.frag\\'" . c-mode))
+(add-to-list 'auto-mode-alist '("\\.glsl\\'" . c-mode))
