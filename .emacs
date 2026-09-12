@@ -12,8 +12,8 @@
 
 ;; ido
 (ido-mode 1)
-;; (global-set-key (kbd "M-x") 'smex)
-;; (global-set-key (kbd "C-c C-c M-x") 'execute-extaended-command)
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "C-c C-c M-x") 'execute-extaended-command)
 
 ;; mulitiple cursors
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
