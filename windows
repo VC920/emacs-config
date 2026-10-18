@@ -1,0 +1,23 @@
+;; -*- lexical-binding: t -*-
+(menu-bar-mode   -1)
+(tool-bar-mode   -1)
+(scroll-bar-mode -1)
+(global-display-line-numbers-mode 1)
+
+(setq inhibit-startup-screen t)
+(setq ring-bell-function 'ignore)
+
+(setq-default c-basic-offset 4)
+(setq-default indent-tabs-mode  nil)
+(setq-default make-backup-files nil)
+
+;; path
+(cd "~")
+
+;; theme
+(load-theme 'doom-xcode 1)
+(add-to-list 'default-frame-alist '(font . "Consolas 12"))
+
+;; ido
+(ido-mode 1)
+(global-set-key (kbd "M-x") 'smex)
